@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:meal_mate/widgets/bigText.dart';
+import 'package:meal_mate/widgets/smallText.dart';
 
 import '../../util/appTheme.dart';
 
@@ -16,14 +18,21 @@ class HomeScreen extends StatelessWidget {
             child: Column(
               children: [
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 10),
+                  padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Column(
                         children: [
-                          Text('Bangladesh'),
-                          Text('new Town'),
+                          BigText(text: 'India'),
+                          Row(
+                            children: [
+                              SmallText(text: 'New Town', color: AppColors.titleTextColor,),
+                              Icon(
+                                Icons.arrow_drop_down_rounded,
+                                )
+                            ],
+                          ),
                         ],
                       ),
                       Container(
