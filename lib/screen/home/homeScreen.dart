@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:meal_mate/screen/home/bodyHomeScreen.dart';
 import 'package:meal_mate/widgets/bigText.dart';
 import 'package:meal_mate/widgets/smallText.dart';
 
@@ -24,7 +25,7 @@ class HomeScreen extends StatelessWidget {
                     children: [
                       Column(
                         children: [
-                          BigText(text: 'India'),
+                          BigText(text: 'India', weight: FontWeight.w600,),
                           Row(
                             children: [
                               SmallText(text: 'New Town', color: AppColors.titleTextColor,),
@@ -47,6 +48,7 @@ class HomeScreen extends StatelessWidget {
                     ],
                   ),
                 ),
+                BodyHomeScreen(),
               ],
             ),
           ),
