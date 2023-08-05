@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:meal_mate/util/appTheme.dart';
 import 'package:meal_mate/widgets/bigText.dart';
 import 'package:meal_mate/widgets/icon_text.dart';
 import 'package:meal_mate/widgets/smallText.dart';
-
+import 'package:dots_indicator/dots_indicator.dart';
 class BodyHomeScreen extends StatefulWidget {
   const BodyHomeScreen({super.key});
 
@@ -35,15 +34,30 @@ class _BodyHomeScreenState extends State<BodyHomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 320,
-      child: PageView.builder(
-        controller: pageController,
-        itemCount: 5,
-        itemBuilder: (context, position){
-          return _buildPageItem(position);
-        },
+    return Column(
+      children: [
+        Container(
+          height: 310,
+          child: PageView.builder(
+            controller: pageController,
+            itemCount: 5,
+            itemBuilder: (context, position){
+              return _buildPageItem(position);
+            },
+          ),
         ),
+        new DotsIndicator(
+          dotsCount: 5,
+          position: _curPageVal,
+          decorator: DotsDecorator(
+            activeColor: AppColors.primaryColorDark,
+            size: const Size.square(9.0),
+            activeSize: const Size(18.0, 9.0),
+            activeShape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(5.0)),
+          ),
+        ),
+      ],
     );
   }
 
@@ -76,7 +90,7 @@ class _BodyHomeScreenState extends State<BodyHomeScreen> {
       transform: matrix,
       child: Stack(
         children:[
-              Container(
+          Container(
                 height: 200,
                 margin: const EdgeInsets.only(left: 5, right: 5),
                 decoration: BoxDecoration(
@@ -91,8 +105,8 @@ class _BodyHomeScreenState extends State<BodyHomeScreen> {
           Align(
             alignment: Alignment.bottomCenter,
             child: Container(
-              height: 120,
-              margin: EdgeInsets.only(left: 25, right: 25, bottom: 45),
+              height: 110,
+              margin: EdgeInsets.only(left: 25, right: 25, bottom: 35),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20),
                 color: AppColors.primaryColorDark,
@@ -113,7 +127,7 @@ class _BodyHomeScreenState extends State<BodyHomeScreen> {
                 ]
               ),
               child: Padding(
-                padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
+                padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 16),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
