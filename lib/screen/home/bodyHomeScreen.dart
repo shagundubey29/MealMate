@@ -91,14 +91,29 @@ class _BodyHomeScreenState extends State<BodyHomeScreen> {
           Align(
             alignment: Alignment.bottomCenter,
             child: Container(
-              height: 110,
+              height: 120,
               margin: EdgeInsets.only(left: 25, right: 25, bottom: 45),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20),
                 color: AppColors.primaryColorDark,
+                boxShadow:  [
+                  BoxShadow(
+                    color: AppColors.primaryColorDark,
+                    blurRadius: 9.0,
+                    offset: const Offset(0, 5),
+                  ),
+                  BoxShadow(
+                    color: AppColors.primaryColorDark,
+                    offset: Offset(-5, 0),
+                  ),
+                  BoxShadow(
+                    color: AppColors.primaryColorDark,
+                    offset:  Offset(5, 0),
+                  ),
+                ]
               ),
               child: Padding(
-                padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
+                padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
