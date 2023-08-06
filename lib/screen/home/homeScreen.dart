@@ -21,14 +21,14 @@ class _HomeScreenState extends State<HomeScreen> {
     // print('hello000000000' + MediaQuery.of(context).size.height.toString());
 
     return Scaffold(
-      backgroundColor: AppColors.primaryColor,
+      backgroundColor: AppColors.primaryColor ,
       body: SafeArea(
         child: Container(
           child: Container(
             child: Column(
               children: [
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+                  padding: EdgeInsets.symmetric(horizontal: Dimensions.width20, vertical: Dimensions.width16),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -46,19 +46,25 @@ class _HomeScreenState extends State<HomeScreen> {
                           ),
                         ],
                       ),
-                      Container(
-                        width: 45,
-                        height: 45,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(15),
-                          color: AppColors.primaryColorDark,
+                      Center(
+                        child: Container(
+                          width: 45,
+                          height: 45,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(Dimensions.borderRadius15),
+                            color: AppColors.primaryColorDark,
+                          ),
+                            child: const Icon(Icons.search),
                         ),
-                          child: const Icon(Icons.search),
                       )
                     ],
                   ),
                 ),
-                BodyHomeScreen(),
+                Expanded(
+                  child: SingleChildScrollView(
+                    child: BodyHomeScreen()
+                    ),
+                  ),
               ],
             ),
           ),
