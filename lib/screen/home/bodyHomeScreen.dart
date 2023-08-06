@@ -114,20 +114,44 @@ class _BodyHomeScreenState extends State<BodyHomeScreen> {
                       ),
                     ),
                     //text part
-                    Container(
-                      height: 100,
-                      width: 200,
-                      decoration: BoxDecoration(
-                        color: AppColors.primaryColorLight,
-                        borderRadius: BorderRadius.only(
-                          topRight: Radius.circular(Dimensions.borderRadius20),
-                          bottomRight: Radius.circular(Dimensions.height20)
+                    Expanded(
+                      child: Container(
+                        height: 100,
+                        decoration: BoxDecoration(
+                          color: AppColors.primaryColorLight,
+                          borderRadius: BorderRadius.only(
+                            topRight: Radius.circular(Dimensions.borderRadius20),
+                            bottomRight: Radius.circular(Dimensions.height20)
+                          ),
                         ),
-                      ),
-                      child: Column(
-                        children: [
-                          
-                        ],
+                        child: Column(
+                          children: [
+                            BigText(text: 'Nutrious fruit meal icecream pudding'),
+                            SizedBox(height: Dimensions.height10,),
+                            SmallText(text: 'With chinese characteristics'),
+                            SizedBox(height: Dimensions.height18),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                IconAndText(
+                                  icon: Icons.circle_rounded,
+                                  text: 'Normal',
+                                  iconColor: AppColors.orangeColor,
+                                ),
+                                IconAndText(
+                                  icon: Icons.location_on_rounded,
+                                  text: '1.7km',
+                                  iconColor: AppColors.blueColor,
+                                ),
+                                IconAndText(
+                                  icon: Icons.access_time_rounded,
+                                  text: '32 mins',
+                                  iconColor: Colors.redAccent,
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ],
