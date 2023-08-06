@@ -38,6 +38,7 @@ class _BodyHomeScreenState extends State<BodyHomeScreen> {
   Widget build(BuildContext context) {
     return Column(
       children: [
+        //img slider
         Container(
           height: Dimensions.pageView,
           child: PageView.builder(
@@ -48,6 +49,11 @@ class _BodyHomeScreenState extends State<BodyHomeScreen> {
             },
           ),
         ),
+        //dot area
+        SizedBox(
+          height: Dimensions.height10,
+        ),
+
         new DotsIndicator(
           dotsCount: 5,
           position: _curPageVal,
@@ -56,9 +62,80 @@ class _BodyHomeScreenState extends State<BodyHomeScreen> {
             size: const Size.square(9.0),
             activeSize: const Size(18.0, 9.0),
             activeShape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(5.0)),
+                borderRadius: BorderRadius.circular(Dimensions.borderRadius5)),
           ),
         ),
+        SizedBox(height: Dimensions.height20,),
+        //popular heading
+        Padding(
+          padding: EdgeInsets.only(
+              left: Dimensions.width20,right: Dimensions.width20, bottom: Dimensions.width16),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: [
+              BigText(text: 'Popular', weight: FontWeight.w600,),
+              SizedBox(width: Dimensions.width5,),
+              Container(
+                margin: EdgeInsets.only(bottom: 2),
+                child: SmallText(text: '.', size: 24,),
+              ),
+              SizedBox(
+                width: Dimensions.width5,
+              ),
+              Container(
+                child: SmallText(text: 'Food pairing'),
+              )
+            ],
+          ),
+        ),
+        //list section
+        Container(
+          height: 900,
+          child: ListView.builder(
+            physics: NeverScrollableScrollPhysics(),
+            shrinkWrap: true,
+            itemCount: 10,
+            itemBuilder:(context, index) {
+              return Container(
+                margin: EdgeInsets.only(left: Dimensions.width20,right: Dimensions.width20, bottom: Dimensions.height8),
+                child: Row(
+                  children: [
+                    //img part
+                    Container(
+                      height: 120,
+                      width: 120,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(Dimensions.borderRadius20),
+                        image: DecorationImage(
+                          fit: BoxFit.cover,
+                          image: AssetImage('assets/image/food0.png'),
+                          ),
+                      ),
+                    ),
+                    //text part
+                    Container(
+                      height: 100,
+                      width: 200,
+                      decoration: BoxDecoration(
+                        color: AppColors.primaryColorLight,
+                        borderRadius: BorderRadius.only(
+                          topRight: Radius.circular(Dimensions.borderRadius20),
+                          bottomRight: Radius.circular(Dimensions.height20)
+                        ),
+                      ),
+                      child: Column(
+                        children: [
+                          
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              );
+            },
+          ),
+        )
       ],
     );
   }
@@ -96,9 +173,9 @@ class _BodyHomeScreenState extends State<BodyHomeScreen> {
         children:[
           Container(
                 height: Dimensions.pageViewHeight,
-                margin: const EdgeInsets.only(left: 5, right: 5),
+                margin: EdgeInsets.only(left: Dimensions.width5, right: Dimensions.width5),
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
+                  borderRadius: BorderRadius.circular(Dimensions.borderRadius20),
                   color: index.isEven ? Colors.brown : Colors.brown[800],
                   image: DecorationImage(
                     fit: BoxFit.cover,
@@ -112,26 +189,26 @@ class _BodyHomeScreenState extends State<BodyHomeScreen> {
               height: Dimensions.pageViewTextHeight,
               margin: EdgeInsets.only(left: 25, right: 25, bottom: 15),
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20),
-                color: AppColors.primaryColorDark,
+                borderRadius: BorderRadius.circular(Dimensions.borderRadius20),
+                color: AppColors.primaryColorLight,
                 boxShadow:  [
                   BoxShadow(
-                    color: AppColors.primaryColorDark,
+                    color: AppColors.primaryColorLight,
                     blurRadius: 9.0,
                     offset: const Offset(0, 5),
                   ),
                   BoxShadow(
-                    color: AppColors.primaryColorDark,
+                    color: AppColors.primaryColorLight,
                     offset: Offset(-5, 0),
                   ),
                   BoxShadow(
-                    color: AppColors.primaryColorDark,
+                    color: AppColors.primaryColorLight,
                     offset:  Offset(5, 0),
                   ),
                 ]
               ),
               child: Padding(
-                padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 16),
+                padding: EdgeInsets.symmetric(vertical: Dimensions.height10, horizontal: Dimensions.width16),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
