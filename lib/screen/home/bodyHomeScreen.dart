@@ -90,9 +90,7 @@ class _BodyHomeScreenState extends State<BodyHomeScreen> {
           ),
         ),
         //list section
-        Container(
-          height: 900,
-          child: ListView.builder(
+          ListView.builder(
             physics: NeverScrollableScrollPhysics(),
             shrinkWrap: true,
             itemCount: 10,
@@ -103,8 +101,8 @@ class _BodyHomeScreenState extends State<BodyHomeScreen> {
                   children: [
                     //img part
                     Container(
-                      height: 120,
-                      width: 120,
+                      height: 115,
+                      width: 115,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(Dimensions.borderRadius20),
                         image: DecorationImage(
@@ -116,7 +114,7 @@ class _BodyHomeScreenState extends State<BodyHomeScreen> {
                     //text part
                     Expanded(
                       child: Container(
-                        height: 100,
+                        height: 95,
                         decoration: BoxDecoration(
                           color: AppColors.primaryColorLight,
                           borderRadius: BorderRadius.only(
@@ -124,33 +122,38 @@ class _BodyHomeScreenState extends State<BodyHomeScreen> {
                             bottomRight: Radius.circular(Dimensions.height20)
                           ),
                         ),
-                        child: Column(
-                          children: [
-                            BigText(text: 'Nutrious fruit meal icecream pudding'),
-                            SizedBox(height: Dimensions.height10,),
-                            SmallText(text: 'With chinese characteristics'),
-                            SizedBox(height: Dimensions.height18),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                IconAndText(
-                                  icon: Icons.circle_rounded,
-                                  text: 'Normal',
-                                  iconColor: AppColors.orangeColor,
-                                ),
-                                IconAndText(
-                                  icon: Icons.location_on_rounded,
-                                  text: '1.7km',
-                                  iconColor: AppColors.blueColor,
-                                ),
-                                IconAndText(
-                                  icon: Icons.access_time_rounded,
-                                  text: '32 mins',
-                                  iconColor: Colors.redAccent,
-                                ),
-                              ],
-                            ),
-                          ],
+                        child: Padding(
+                          padding:  EdgeInsets.only(left: Dimensions.width8, right: Dimensions.width8),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              BigText(text: 'Nutrious fruit meal icecream pudding'),
+                              SizedBox(height: 8),
+                              SmallText(text: 'With chinese characteristics'),
+                              SizedBox(height: 8),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                  IconAndText(
+                                    icon: Icons.circle_rounded,
+                                    text: 'Normal',
+                                    iconColor: AppColors.orangeColor,
+                                  ),
+                                  IconAndText(
+                                    icon: Icons.location_on_rounded,
+                                    text: '1.7km',
+                                    iconColor: AppColors.blueColor,
+                                  ),
+                                  IconAndText(
+                                    icon: Icons.access_time_rounded,
+                                    text: '32min',
+                                    iconColor: Colors.redAccent,
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     ),
@@ -159,7 +162,6 @@ class _BodyHomeScreenState extends State<BodyHomeScreen> {
               );
             },
           ),
-        )
       ],
     );
   }
